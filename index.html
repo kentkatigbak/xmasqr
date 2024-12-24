@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Wishes</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #2e3a47; /* Dark Christmas Background */
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        /* Section 1 - Merry Christmas Text */
+        .merry-christmas {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff4d6d;
+            animation: textAnimate 5s ease-in-out infinite alternate;
+        }
+
+        .merry-christmas p {
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        @keyframes textAnimate {
+            0% {
+                transform: translateY(-10px);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(10px);
+                opacity: 1;
+            }
+        }
+
+        /* Section 2 - Image (QR Code) */
+        .qr-code-section {
+            margin-top: 50px;
+            animation: fadeIn 3s ease-out;
+        }
+
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            border: 5px solid #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Christmas-themed Background Animation */
+        .snow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            background: white;
+            opacity: 0.8;
+            animation: snow 10s linear infinite;
+            border-radius: 50%;
+        }
+
+        @keyframes snow {
+            0% {
+                transform: translateY(-10px) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        .snowflake:nth-child(1) { width: 10px; height: 10px; animation-duration: 12s; left: 20%; }
+        .snowflake:nth-child(2) { width: 8px; height: 8px; animation-duration: 15s; left: 50%; }
+        .snowflake:nth-child(3) { width: 12px; height: 12px; animation-duration: 18s; left: 70%; }
+        .snowflake:nth-child(4) { width: 6px; height: 6px; animation-duration: 10s; left: 40%; }
+        .snowflake:nth-child(5) { width: 10px; height: 10px; animation-duration: 14s; left: 80%; }
+    </style>
+</head>
+<body>
+    <!-- Snowflake Effect -->
+    <div class="snow">
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+    </div>
+
+    <!-- First Section - Merry Christmas Message -->
+    <div class="merry-christmas">
+        <p>We wish you a merry Christmas</p>
+        <p>We wish you a merry Christmas</p>
+        <p>We wish you a merry Christmas</p>
+        <p>And a happy new year.</p>
+    </div>
+
+    <!-- Second Section - QR Code Image -->
+    <div class="qr-code-section">
+        <img class="qr-code" src="https://en.wikipedia.org/wiki/QR_code#/media/File:QR_code_for_mobile_English_Wikipedia.svg" alt="QR Code for Wikipedia">
+    </div>
+
+    <script>
+        // Add snowflakes randomly on page load
+        function generateSnowflakes() {
+            for (let i = 0; i < 100; i++) {
+                let snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                snowflake.style.left = `${Math.random() * 100}vw`;
+                snowflake.style.animationDuration = `${Math.random() * 10 + 5}s`;
+                snowflake.style.animationDelay = `${Math.random() * 5}s`;
+                document.querySelector('.snow').appendChild(snowflake);
+            }
+        }
+
+        // Call function to generate snowflakes
+        generateSnowflakes();
+    </script>
+</body>
+</html>
